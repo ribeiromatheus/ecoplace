@@ -74,7 +74,7 @@ export default class PointController {
       };
     })
 
-    await trx('points').insert(pointItems);
+    await trx('point_items').insert(pointItems);
 
     await trx.commit();
 
