@@ -16,7 +16,7 @@ export default class PointController {
       .where('city', String(city))
       .where('state', String(state))
       .distinct()
-      .select('point.*');
+      .select('points.*');
 
     return response.json(points);
   }
