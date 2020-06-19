@@ -28,7 +28,7 @@ interface City {
   nome: string;
 }
 
-const CreatePoint: React.FC = () => {
+const CreatePoint = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [states, setStates] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
