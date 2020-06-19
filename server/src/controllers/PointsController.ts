@@ -41,6 +41,7 @@ export default class PointController {
   async create(request: Request, response: Response) {
     const {
       name,
+      image,
       email,
       whatsapp,
       latitude,
@@ -53,7 +54,7 @@ export default class PointController {
     const trx = await knex.transaction();
 
     const point = {
-      image: 'image-fake',
+      image,
       name,
       email,
       whatsapp,
