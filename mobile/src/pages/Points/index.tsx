@@ -9,8 +9,8 @@ import * as Location from 'expo-location';
 import api from '../../services/api';
 
 interface HomeParams {
-  city: number;
-  state: string;
+  selectedCity: string;
+  selectedState: string;
 }
 
 interface Item {
@@ -69,8 +69,8 @@ const Points = () => {
   useEffect(() => {
     api.get('points', {
       params: {
-        city: routeParams.city,
-        state: routeParams.state,
+        city: routeParams.selectedCity,
+        state: routeParams.selectedState,
         items: selectedItems
       }
     }).then(response => {
