@@ -1,17 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
-import { View, ImageBackground, Image, Text, StyleSheet, KeyboardAvoidingView, TextInput, Platform } from 'react-native';
+import { View, ImageBackground, Image, Text, StyleSheet, KeyboardAvoidingView, Picker, Platform } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
+import axios from '../../services/api';
+
+interface State {
+  sigla: string;
+}
+
+interface City {
+  nome: string;
+}
+
 const Home = () => {
-  const [state, setState] = useState('');
-  const [city, setCity] = useState('');
+  const [state, setState] = useState<String[]>([]);
+  const [city, setCity] = useState<String[]>([]);
+  const [selectedState, setSelectedState] = useState('0');
+  const [selectedCity, setSelectedCity] = useState('0');
 
   const { navigate } = useNavigation();
 
+  useEffect(() => {
+    axios
+      .get<State[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+      .then(response => {
+        const stateInitials = response.data.map(state => state.sigla);
+
+        setState(stateInitials);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (selectedState === '0') {
+      return;
+    }
+
+    axios
+      .get<City[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedState}/municipios`)
+      .then(response => {
+        const citiesNames = response.data.map(city => city.nome);
+
+        setCity(citiesNames);
+      })
+  }, [selectedState]);
+
   function handleNavigateToPoints() {
-    navigate('Points', { state, city });
+    navigate('Points', { selectedState, selectedCity });
   }
 
   return (
@@ -35,37 +71,35 @@ const Home = () => {
         </View>
 
         <View style={styles.footer}>
-          <View style={styles.footer}>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite a UF"
-              value={state}
-              maxLength={2}
-              autoCapitalize="characters"
-              autoCorrect={false}
-              onChangeText={setState}
-            />
+          <Picker
+            selectedValue={selectedState}
+            onValueChange={(itemValue, itemIndex) => setSelectedState(itemValue)}>
+            <Picker.Item label="Selecione um estado" value="Selecione um estado" />
+            {state.map(state => (
+              <Picker.Item key={String(state)} label={String(state)} value={String(state)} />
+            ))}
+          </Picker>
 
-            <TextInput
-              style={styles.input}
-              placeholder="Digite a cidade"
-              value={city}
-              autoCorrect={false}
-              onChangeText={setCity}
-            />
-          </View>
-
-          <RectButton style={styles.button} onPress={handleNavigateToPoints}>
-            <View style={styles.buttonIcon}>
-              <Text>
-                <Icon name="arrow-right" color="#fff" size={24} />
-              </Text>
-            </View>
-            <Text style={styles.buttonText}>Entrar</Text>
-          </RectButton>
+          <Picker
+            selectedValue={selectedCity}
+            onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}>
+            <Picker.Item label="Selecione uma cidade" value="Selecione uma cidade" />
+            {city.map(city => (
+              <Picker.Item key={String(city)} label={String(city)} value={String(city)} />
+            ))}
+          </Picker>
         </View>
+
+        <RectButton style={styles.button} onPress={handleNavigateToPoints}>
+          <View style={styles.buttonIcon}>
+            <Text>
+              <Icon name="arrow-right" color="#fff" size={24} />
+            </Text>
+          </View>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </RectButton>
       </ImageBackground>
-    </KeyboardAvoidingView>
+    </KeyboardAvoidingView >
   );
 }
 
