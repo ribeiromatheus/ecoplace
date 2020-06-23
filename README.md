@@ -51,7 +51,7 @@
 **Ecoplace** is a web and mobile app to register and search for a waste collection point, such as light bulbs, organic and electronic waste, paper, cardboard and cooking oil.
 
 ### 🚪 Server
-The backend is an API Restful; you must run it to use the web and mobile app.
+The server is an API Restful; you must run it to use the web and mobile app.
 
 ### 🌐 Web app
 The web app is for registering a waste collection point.
@@ -64,11 +64,13 @@ Here is the **Home Page**; click the button to register your waste collection po
 #### Registration Page
 Here is the **Registration Page**; fill in the fields to get your waste collection point registered and ready to be found.
 
-<img src="https://user-images.githubusercontent.com/41703972/85444907-34c8f480-b569-11ea-8b0f-93352145f828.png" width="200">
+<div style="display: flex; justify-content: space-between">
+  <img src="https://user-images.githubusercontent.com/41703972/85444907-34c8f480-b569-11ea-8b0f-93352145f828.png" width="200">
 
-<img src="https://user-images.githubusercontent.com/41703972/85445362-ad2fb580-b569-11ea-8077-08f1c9ae37ec.png" width="200">
+  <img src="https://user-images.githubusercontent.com/41703972/85445362-ad2fb580-b569-11ea-8077-08f1c9ae37ec.png" width="200">
 
-<img src="https://user-images.githubusercontent.com/41703972/85445611-f2ec7e00-b569-11ea-9772-e00ca09b02a5.png" width="200">
+  <img src="https://user-images.githubusercontent.com/41703972/85445611-f2ec7e00-b569-11ea-9772-e00ca09b02a5.png" width="200">
+</div>
 
 ### 📱 Mobile app
 The mobile app is where you can find the waste collection point. You can contact the owner's waste collection point via email and whatsapp for more details.
