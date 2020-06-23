@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
-import { View, ImageBackground, Image, Text, StyleSheet, KeyboardAvoidingView, Picker, Platform } from 'react-native';
+import { View, ImageBackground, Image, Text, StyleSheet, Picker } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
@@ -51,55 +51,50 @@ const Home = () => {
   }
 
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    <ImageBackground
+      source={require('../../assets/home-background.png')}
+      style={styles.container}
+      imageStyle={{ width: 275, height: 368 }}
     >
-      <ImageBackground
-        source={require('../../assets/home-background.png')}
-        style={styles.container}
-        imageStyle={{ width: 275, height: 368 }}
-      >
-        <View style={styles.main}>
-          <Image source={require('../../assets/logo.png')} />
-          <View>
-            <Text style={styles.title}>Seu marketplace de coleta de resíduos</Text>
-            <Text style={styles.description}>
-              Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.
+      <View style={styles.main}>
+        <Image source={require('../../assets/logo.png')} />
+        <View>
+          <Text style={styles.title}>Seu marketplace de coleta de resíduos</Text>
+          <Text style={styles.description}>
+            Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.
             </Text>
-          </View>
         </View>
+      </View>
 
-        <View style={styles.footer}>
-          <Picker
-            selectedValue={selectedState}
-            onValueChange={(itemValue, itemIndex) => setSelectedState(itemValue)}>
-            <Picker.Item label="Selecione um estado" value="Selecione um estado" />
-            {state.map(state => (
-              <Picker.Item key={String(state)} label={String(state)} value={String(state)} />
-            ))}
-          </Picker>
+      <View>
+        <Picker
+          selectedValue={selectedState}
+          onValueChange={(itemValue, itemIndex) => setSelectedState(itemValue)}>
+          <Picker.Item label="Selecione um estado" value="Selecione um estado" />
+          {state.map(state => (
+            <Picker.Item key={String(state)} label={String(state)} value={String(state)} />
+          ))}
+        </Picker>
 
-          <Picker
-            selectedValue={selectedCity}
-            onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}>
-            <Picker.Item label="Selecione uma cidade" value="Selecione uma cidade" />
-            {city.map(city => (
-              <Picker.Item key={String(city)} label={String(city)} value={String(city)} />
-            ))}
-          </Picker>
+        <Picker
+          selectedValue={selectedCity}
+          onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}>
+          <Picker.Item label="Selecione uma cidade" value="Selecione uma cidade" />
+          {city.map(city => (
+            <Picker.Item key={String(city)} label={String(city)} value={String(city)} />
+          ))}
+        </Picker>
+      </View>
+
+      <RectButton style={styles.button} onPress={handleNavigateToPoints}>
+        <View style={styles.buttonIcon}>
+          <Text>
+            <Icon name="arrow-right" color="#fff" size={24} />
+          </Text>
         </View>
-
-        <RectButton style={styles.button} onPress={handleNavigateToPoints}>
-          <View style={styles.buttonIcon}>
-            <Text>
-              <Icon name="arrow-right" color="#fff" size={24} />
-            </Text>
-          </View>
-          <Text style={styles.buttonText}>Entrar</Text>
-        </RectButton>
-      </ImageBackground>
-    </KeyboardAvoidingView >
+        <Text style={styles.buttonText}>Entrar</Text>
+      </RectButton>
+    </ImageBackground>
   );
 }
 
@@ -130,10 +125,6 @@ const styles = StyleSheet.create({
     maxWidth: 260,
     lineHeight: 24,
   },
-
-  footer: {},
-
-  select: {},
 
   input: {
     height: 60,
