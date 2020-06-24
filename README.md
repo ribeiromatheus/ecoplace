@@ -56,18 +56,18 @@ The server is an API Restful; you must run it to use the web and mobile app.
 ### 🌐 Web app
 The web app is for registering a waste collection point.
 
-#### Home Page
+#### 🏠 Home Page
 Here is the **Home Page**; click the button to register your waste collection point.
 
 ![image](https://user-images.githubusercontent.com/41703972/85443946-347c2980-b568-11ea-9d62-554313ece188.png)
 
-#### Registration Page
+#### 📋 Registration Page
 Here is the **Registration Page**; fill in the fields to get your waste collection point registered and ready to be found.
 
 <div style="display: flex; justify-content: space-between">
-  <img src="https://user-images.githubusercontent.com/41703972/85444907-34c8f480-b569-11ea-8b0f-93352145f828.png" width="200">
+  <img src="https://user-images.githubusercontent.com/41703972/85444907-34c8f480-b569-11ea-8b0f-93352145f828.png" width="300">
 
-  <img src="https://user-images.githubusercontent.com/41703972/85445362-ad2fb580-b569-11ea-8077-08f1c9ae37ec.png" width="200">
+  <img src="https://user-images.githubusercontent.com/41703972/85445362-ad2fb580-b569-11ea-8077-08f1c9ae37ec.png" width="300">
 
   <img src="https://user-images.githubusercontent.com/41703972/85445611-f2ec7e00-b569-11ea-9772-e00ca09b02a5.png" width="200">
 </div>
@@ -75,17 +75,17 @@ Here is the **Registration Page**; fill in the fields to get your waste collecti
 ### 📱 Mobile app
 The mobile app is where you can find the waste collection point. You can contact the owner's waste collection point via email and whatsapp for more details.
 
-#### Home
+#### 🏠 Home
 Here is the **Home Screen**; fill in the fields with your state and city to check out the available waste collection point near you.
 
 <img src="https://user-images.githubusercontent.com/41703972/85446939-6f339100-b56b-11ea-87e5-4d0f1a5050ca.jpg" width="200">
 
-#### Points
+#### 📭 Points
 Here is the **Points Screen**; select the kind of residue you would like so you can see the available waste collection point near you.
 
 <img src="https://user-images.githubusercontent.com/41703972/85446942-7064be00-b56b-11ea-99bd-8f7d4892315f.jpg" width="200">
 
-#### Detail
+#### 📃 Detail
 Here is the **Detail Screen**; here you can see more about the waste collection point and send a whatsapp message or email it.
 
 <img src="https://user-images.githubusercontent.com/41703972/85446937-6d69cd80-b56b-11ea-8c77-f817943880ba.jpg" width="200">
