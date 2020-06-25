@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { Request, Response } from 'express';
 
 import knex from '../database/connection';
@@ -10,7 +13,7 @@ export default class ItemsController {
       return {
         id: item.id,
         title: item.title,
-        image_url: `http://192.168.1.100:3333/uploads/${item.image}`
+        image_url: `${process.env.IMAGE_URL}/uploads/${item.image}`
       };
     })
 
