@@ -15,6 +15,7 @@ interface PointsDetail {
   point: {
     name: string;
     image: string;
+    image_url: string;
     email: string;
     whatsapp: string;
     city: string;
@@ -65,7 +66,7 @@ const Detail = () => {
           <Icon name="arrow-left" size={20} color="#34cb79" />
         </TouchableOpacity>
 
-        <Image style={styles.pointImage} source={{ uri: pointsDetail.point.image }} />
+        <Image style={styles.pointImage} source={{ uri: pointsDetail.point.image_url }} />
 
         <Text style={styles.pointName}>{pointsDetail.point.name}</Text>
         <Text style={styles.pointItems}>{pointsDetail.items.map(item => item.title).join(', ')}</Text>
