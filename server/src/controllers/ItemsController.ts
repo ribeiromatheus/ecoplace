@@ -13,7 +13,7 @@ export default class ItemsController {
       return {
         id: item.id,
         title: item.title,
-        image_url: `${process.env.IMAGE_URL}/uploads/${item.image}`
+        image_url: `${process.env.IMAGE_URL}/assets/${item.image}`
       };
     })
 
