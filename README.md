@@ -65,7 +65,7 @@ Here is the **Home Page**; click the button to register your waste collection po
 Here is the **Registration Page**; fill in the fields to get your waste collection point registered and ready to be found.
 
 <div style="display: flex; justify-content: space-between">
-  <img src="https://user-images.githubusercontent.com/41703972/85444907-34c8f480-b569-11ea-8b0f-93352145f828.png" width="300">
+  <img src="https://user-images.githubusercontent.com/41703972/85884711-70f29400-b7b9-11ea-87b8-b87466ad287c.png" width="300">
 
   <img src="https://user-images.githubusercontent.com/41703972/85445362-ad2fb580-b569-11ea-8077-08f1c9ae37ec.png" width="300">
 
