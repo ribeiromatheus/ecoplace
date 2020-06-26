@@ -99,7 +99,8 @@ Here is the **Detail Screen**; here you can see more about the waste collection 
 1. At first, clone the repo by running `git clone https://github.com/ribeiromatheus/ecoplace.git` or `hub clone ribeiromatheus/ecoplace` - if you have [hub](https://hub.github.com/) installed on your machine - on your favorite terminal.
 2. After cloning run `yarn` or `npm install` on **server**, **web** and **mobile** folder.
 3. After that, go to **server** folder and rename `.env.example` file to `.env`, then enter your own credentials.
-4. Next, go to `mobile/src` folder and create a folder named **credentials**, then create a **json** file named **baseUrl** so you can add your **ip address** followed by **server port** or your **server url** only.
+4. Still in the **server** folder, run `yarn knex:migrate` or `npm run knex:migrate` to generate the database and `yarn knex:seed` or `npm run knex:seed` to create insert the "items" into the **items table**.
+5. Next, go to `mobile/src` folder and create a folder named **credentials**, then create a **json** file named **baseUrl** so you can add your **ip address** followed by **server port** or your **server url** only.
 
 ```json
 {
